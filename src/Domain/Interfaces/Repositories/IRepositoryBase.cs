@@ -7,5 +7,7 @@ namespace Gama.RedeSocial.Domain.Interfaces
 {
     public interface IRepositoryBase<TEntity> : IBase<TEntity> where TEntity : BaseEntity//criado uma base so para o que vai para o repositorio
     {
+        void Execute(string sql, object parameters);
+        IEnumerable<T> Execute<T>(string sql, object parameters);
     }
 }

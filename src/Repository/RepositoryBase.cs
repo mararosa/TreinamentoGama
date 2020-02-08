@@ -1,4 +1,5 @@
 ﻿
+using Dapper;
 using Dommel;
 using Gama.RedeSocial.Domain.Entities;
 using Gama.RedeSocial.Domain.Interfaces;
@@ -18,40 +19,57 @@ namespace Repository
             }
         }
 
-        public TEntity Get(Guid Id)
+        public void Execute(string sql, object parameters)
         {
-
-            using (var connection = SqlConnectionFactory.Create())
+            using (var db = SqlConnectionFactory.Create()) //string sql eh qualquer coisa, ex, select e *
             {
-                return connection.Get<TEntity>(Id);
+                db.Query(sql, parameters);
             }
-
         }
+
+        public IEnumerable<T> Execute<T>(string sql, object parameters)
+        {
+            using (var db = SqlConnectionFactory.Create())
+            {
+                return db.Query<T>(sql, parameters);
+            }
+        }
+
+        public TEntity Get(Guid Id)
+            {
+
+                using (var connection = SqlConnectionFactory.Create())
+                {
+                    return connection.Get<TEntity>(Id);
+                }
+
+            }
 
         public IEnumerable<TEntity> Guet(Expression<Func<TEntity, bool>> predicate)
-        {
-
-            using (var connection = SqlConnectionFactory.Create())
             {
-                return connection.Select(predicate);
+
+                using (var connection = SqlConnectionFactory.Create())
+                {
+                    return connection.Select(predicate);
+                }
             }
-        }
 
         public Guid Insert(TEntity entity)
-        {
-            using (var connection = SqlConnectionFactory.Create())
             {
-               connection.Insert(entity);
+                using (var connection = SqlConnectionFactory.Create())
+                {
+                    connection.Insert(entity);
 
-                return entity.Id;
+                    return entity.Id;
+                }
             }
-        }
 
         public bool Update(TEntity entity)
-        {
-            using (var connection = SqlConnectionFactory.Create())
             {
-               return  connection.Update(entity);
+                using (var connection = SqlConnectionFactory.Create())
+                {
+                    return connection.Update(entity);
+                }
             }
         }
     }
