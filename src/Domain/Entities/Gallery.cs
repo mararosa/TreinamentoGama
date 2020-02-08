@@ -9,5 +9,10 @@ namespace Gama.RedeSocial.Domain.Entities
         public string Name { get; set; }
         public List<Media> Medias { get; set; }
         public User Author { get; set; }
+
+        public override void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(Name)) throw new ArgumentNullException("O nome deve ser preenchido");
+        }
     }
 }

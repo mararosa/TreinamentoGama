@@ -9,19 +9,19 @@ using System.Linq.Expressions;
 
 namespace Repository
 {
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity//essa clase sera aimplementacao do meu contrato. 
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity//essa clase sera implementacao do meu contrato. 
     {
-        public bool Delete(Guid id)
+        public bool Delete(Guid Id)
         {
-            using (var connection = SqlConnectionFactory.Create()) //using eh um try-finally
+            using (var cn = SqlConnectionFactory.Create())
             {
-                return connection.Delete(id);
+                return cn.Delete(Id);
             }
         }
 
         public void Execute(string sql, object parameters)
         {
-            using (var db = SqlConnectionFactory.Create()) //string sql eh qualquer coisa, ex, select e *
+            using (var db = SqlConnectionFactory.Create())
             {
                 db.Query(sql, parameters);
             }
@@ -35,41 +35,36 @@ namespace Repository
             }
         }
 
-        public TEntity Get(Guid Id)
+        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        {
+            using (var cn = SqlConnectionFactory.Create())
             {
-
-                using (var connection = SqlConnectionFactory.Create())
-                {
-                    return connection.Get<TEntity>(Id);
-                }
-
+                return cn.Select(predicate);
             }
+        }
 
-        public IEnumerable<TEntity> Guet(Expression<Func<TEntity, bool>> predicate)
+        public TEntity Get(Guid id)
+        {
+            using (var cn = SqlConnectionFactory.Create())
             {
-
-                using (var connection = SqlConnectionFactory.Create())
-                {
-                    return connection.Select(predicate);
-                }
+                return cn.Get<TEntity>(id);
             }
+        }
 
         public Guid Insert(TEntity entity)
+        {
+            using (var cn = SqlConnectionFactory.Create())
             {
-                using (var connection = SqlConnectionFactory.Create())
-                {
-                    connection.Insert(entity);
-
-                    return entity.Id;
-                }
+                cn.Insert(entity);
+                return entity.Id;
             }
+        }
 
         public bool Update(TEntity entity)
+        {
+            using (var cn = SqlConnectionFactory.Create())
             {
-                using (var connection = SqlConnectionFactory.Create())
-                {
-                    return connection.Update(entity);
-                }
+                return cn.Update(entity);
             }
         }
     }
