@@ -1,38 +1,58 @@
-﻿using Gama.RedeSocial.Domain.Entities;
+﻿
+using Dommel;
+using Gama.RedeSocial.Domain.Entities;
 using Gama.RedeSocial.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Repository
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity//essa clase sera aimplementacao do meu contrato. 
     {
-        public bool Delete(Guid Id)
+        public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
+            using (var connection = SqlConnectionFactory.Create()) //using eh um try-finally
+            {
+                return connection.Delete(id);
+            }
         }
 
-        public TEntity Get(Guid id)
+        public TEntity Get(Guid Id)
         {
-            throw new NotImplementedException();
+
+            using (var connection = SqlConnectionFactory.Create())
+            {
+                return connection.Get<TEntity>(Id);
+            }
+
         }
 
-        public IQueryable<TEntity> Guet(Expression<Func<bool, TEntity>> predicate)
+        public IEnumerable<TEntity> Guet(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+
+            using (var connection = SqlConnectionFactory.Create())
+            {
+                return connection.Select(predicate);
+            }
         }
 
-        public bool Insert(TEntity entity)
+        public Guid Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (var connection = SqlConnectionFactory.Create())
+            {
+               connection.Insert(entity);
+
+                return entity.Id;
+            }
         }
 
         public bool Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (var connection = SqlConnectionFactory.Create())
+            {
+               return  connection.Update(entity);
+            }
         }
     }
 }

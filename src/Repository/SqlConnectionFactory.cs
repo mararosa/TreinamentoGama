@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace Repository
 {
-    class ConnectionFactory
+    public class SqlConnectionFactory 
     {
+
+      public static SqlConnection Create() ////esse metodo eh estatico. Sobe inteiro para a memoria
+        {
+            return new SqlConnection("");
+        }
+
     }
 }
