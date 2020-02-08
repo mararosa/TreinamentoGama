@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Gama.RedeSocial.Domain.Entities
 {
-   public class Gallery
+   public class Gallery : BaseEntity
     {
         public string Name { get; set; }
         public List<Media> Medias { get; set; }
