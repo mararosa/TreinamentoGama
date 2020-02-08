@@ -8,9 +8,13 @@ namespace Repository.Repositories
 {
     class UserRepository : RepositoryBase<User>, IUserRepository  //implementando todo o repository usuario em repository base usuario
     {
-        public User GetByName(string name)
+        public IEnumerable<User> GetByName(string firstName)
         {
-            throw new NotImplementedException();
+            var sql = "SELECT FROM TB_USER WHERE NM_USER = @name";
+
+            var parameters = new { name = firstName}; //objeto anonimo nao tem tipo
+
+          return Execute<User>(sql, parameters); //vai retornar uma (Ienumerable) lista de usuarios
         }
     }
 }
