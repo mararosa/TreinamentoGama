@@ -16,7 +16,7 @@ namespace Repository.Mappers
             Map(entity => entity.Birthday).ToColumn("DS_BIRTHDAY"); 
             Map(entity => entity.Gender.Id).ToColumn("ID_GENDER"); 
             Map(entity => entity.Cover.Id).ToColumn("ID_COVER"); 
-            Map(entity => entity.Avatar.Id).ToColumn("ID_AVATAR"); 
+            Map(entity => entity.Avatar.Id).ToColumn("ID_AVATAR"); //id para fazer referencia
         }
 
     }
