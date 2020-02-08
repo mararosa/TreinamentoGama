@@ -32,7 +32,7 @@ namespace Gama.RedeSocial.Domain.Services
         {
             entity.Validate();
 
-            return _repository.Insert(entity);
+            return _repository.Insert(entity); //nao retorna nada, se acontecer um erro ele anca um throw
         }
 
         public bool Update(TEntity entity)

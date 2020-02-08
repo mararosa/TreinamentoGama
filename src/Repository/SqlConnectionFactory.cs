@@ -10,6 +10,7 @@ namespace Repository
 
       public static SqlConnection Create() ////esse metodo eh estatico. Sobe inteiro para a memoria
         {
+#warning colocar connection string
             return new SqlConnection("");
         }
 

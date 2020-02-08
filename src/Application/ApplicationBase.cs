@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gama.RedeSocial.Domain.Interfaces.Applications
+namespace Application
 {
-    interface IServiceBase
+    class ApplicationBase
     {
     }
 }
