@@ -10,7 +10,7 @@ namespace Repository.Mappers
         public MediaMapper()
         {
             ToTable("TB_MEDIA");
-            Map(entity => entity.MediaType.Id).ToColumn("Id_MEDIA_TYPE");
+            Map(entity => entity.MediaType.Id).ToColumn("ID_MEDIA_TYPE");
             Map(entity => entity.Path).ToColumn("DS_PATH");
         }
     }
