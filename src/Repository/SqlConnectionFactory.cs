@@ -12,7 +12,7 @@ namespace Repository
             #region  colocar connection string      
             #endregion
 
-            return new SqlConnection();
+            return new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Integrated Security=True;Database=GAMA_REDE_SOCIAL");
         }
 
     }
