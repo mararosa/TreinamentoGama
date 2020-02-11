@@ -12,7 +12,7 @@ namespace Repository.Mappers
             ToTable("TB_INVITE");
             Map(entity => entity.Sender.Id).ToColumn("ID_SENDER");
             Map(entity => entity.Receiver.Id).ToColumn("ID_RECEIVER");
-            Map(entity => entity.Status.Id).ToColumn("ID_STATUS");
+            Map(entity => entity.InviteStatus.Id).ToColumn("ID_STATUS");
         }
     }
 }
