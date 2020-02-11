@@ -10,8 +10,10 @@ namespace Repository.Mappers
         public PostMapper()
         {
             ToTable("TB_POST");
-            Map(entity => entity.Text).ToColumn("DS_TEXT");
-          
+            Map(e => e.Text).ToColumn("DS_TEXT");
+            Map(e => e.ParentId).ToColumn("ID_PARENT");
+            Map(e => e.AuthorId).ToColumn("ID_USER");
+
         }
     }
 }
