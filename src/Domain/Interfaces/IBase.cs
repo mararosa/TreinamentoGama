@@ -1,9 +1,7 @@
 ﻿using Gama.RedeSocial.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Gama.RedeSocial.Domain.Interfaces
 {
