@@ -25,7 +25,7 @@ namespace Gama.RedeSocial.Domain.Entities
                 throw new ArgumentNullException("'Name' não foi preenchido");
 
             if (AuthorId == Guid.Empty)
-                throw new ArgumentNullException("'AuthorId' não foi preenchido")
+                throw new ArgumentNullException("'AuthorId' não foi preenchido");
         }
 
         #region MetodoTeste
