@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Repository.Repositories
 {
-   public class GenderRepository : RepositoryBase<Gender>, IGenderRepository
+    public class GenderRepository : RepositoryBase<Gender>, IGenderRepository
     {
+
     }
 }

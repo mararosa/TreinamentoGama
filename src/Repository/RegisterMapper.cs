@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Repository
 {
-    public static class RegisterMappers
+    public static class RegisterMappers //statico nao preciso dar new. 
     {
-        public static void Register()
+        public static void Register() //mapear todas as classes
         {
             FluentMapper.Initialize(config =>
             {

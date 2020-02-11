@@ -5,13 +5,14 @@ using System.Text;
 
 namespace Repository
 {
-    public class SqlConnectionFactory 
+    public class SqlConnectionFactory
     {
-
-      public static SqlConnection Create() ////esse metodo eh estatico. Sobe inteiro para a memoria
+        public static SqlConnection Create() ////esse metodo eh estatico. Sobe inteiro para a memoria
         {
-#warning colocar connection string
-            return new SqlConnection("");
+            #region  colocar connection string      
+            #endregion
+
+            return new SqlConnection();
         }
 
     }

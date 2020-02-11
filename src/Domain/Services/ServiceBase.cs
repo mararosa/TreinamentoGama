@@ -10,7 +10,15 @@ namespace Gama.RedeSocial.Domain.Services
 {
     public class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : BaseEntity
     {
-        private readonly IRepositoryBase<TEntity> _repository; //propriedade privada, somente leitura. Que espera o IRepository . Toda classe que atender essa interface ira funcionar.
+        private readonly IRepositoryBase<TEntity> _repository;
+        //propriedade privada, somente leitura. Que espera o IRepository . Toda classe que atender essa interface ira funcionar.
+
+        public ServiceBase(IRepositoryBase<TEntity> repository)
+        {
+            _repository = repository;
+        }
+
+        
         public bool Delete(Guid Id)
         {
             if (Id == new Guid()) throw new ArgumentNullException("O Id deve ser preenchido");
@@ -20,7 +28,7 @@ namespace Gama.RedeSocial.Domain.Services
 
         public TEntity Get(Guid id)
         {
-            throw new NotImplementedException();
+            return _repository.Get(id);
         }
 
         public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)

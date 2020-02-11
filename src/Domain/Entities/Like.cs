@@ -8,5 +8,12 @@ namespace Gama.RedeSocial.Domain.Entities
     {
         public Post Post { get; set; }
         public User User { get; set; }
+
+        public override void Validate()
+        {
+            Post.Validate();
+            User.Validate();
+        }
     }
+
 }
