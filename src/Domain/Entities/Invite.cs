@@ -17,9 +17,8 @@ namespace Gama.RedeSocial.Domain.Entities
 
         public Guid ReceiverId { get; set; }
         public User Receiver { get; set; }
-        public InviteStatus InviteStatus { get; private set; }
         public Guid InviteStatusId { get; set; }
-        public InviteStatus Status { get; set; }
+        public InviteStatus InviteStatus { get; set; }
 
         public override void Validate()
         {
@@ -33,7 +32,7 @@ namespace Gama.RedeSocial.Domain.Entities
                 throw new ArgumentNullException("'InviteStatusId' não foi preenchido");
 
             if (SenderId == ReceiverId)
-                throw new ArgumentException("Invite inválido");
+                throw new ArgumentNullException("Invite Invalido");
         }
         #region MetodoTeste
         //public override void Validate() //vc tinha falado sobre essa questao de ao usar validate mas eu noa me lembro 
