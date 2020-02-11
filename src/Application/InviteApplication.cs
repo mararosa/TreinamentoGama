@@ -15,5 +15,10 @@ namespace Application
         {
             _service = service;
         }
+
+        public IEnumerable<Invite> GetByUserId(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

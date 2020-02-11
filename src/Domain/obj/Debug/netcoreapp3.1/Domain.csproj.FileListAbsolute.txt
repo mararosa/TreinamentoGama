@@ -5,3 +5,4 @@ C:\Projetos\Gama.RedeSocial\src\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyIn
 C:\Projetos\Gama.RedeSocial\src\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
 C:\Projetos\Gama.RedeSocial\src\Domain\obj\Debug\netcoreapp3.1\Gama.RedeSocial.Domain.dll
 C:\Projetos\Gama.RedeSocial\src\Domain\obj\Debug\netcoreapp3.1\Gama.RedeSocial.Domain.pdb
+C:\Projetos\Gama.RedeSocial\src\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache

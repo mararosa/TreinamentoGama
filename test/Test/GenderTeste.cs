@@ -2,7 +2,9 @@ using Gama.RedeSocial.Domain.Entities;
 using Gama.RedeSocial.Domain.Interfaces.Services;
 using Gama.RedeSocial.Domain.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Repository;
 using Repository.Repositories;
+using System;
 
 namespace Test
 {
@@ -12,14 +14,31 @@ namespace Test
         private readonly IGenderService _service;
         public GenderTeste()
         {
+            RegisterMappers.Register();
+
             var repository = new GenderRepository();
 
-            var _service = new GenderService(repository); //precia de um repositorio que atenda o genderService
+            _service = new GenderService(repository); //precia de um repositorio que atenda o genderService
         }
+
         [TestMethod]
-        public void GenderValidation()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ValidateTest()
         {
             var gender = new Gender();
+
+            _service.Insert(gender);
+
+            //nada mais executa depois de um estouro de exceção 
+        }
+
+        [TestMethod]
+        public void IntegratedTest()
+        {
+            var gender = new Gender()
+            {
+                Description = "Indefinido"
+            };
 
             _service.Insert(gender);
         }
