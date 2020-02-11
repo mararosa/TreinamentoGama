@@ -8,7 +8,7 @@ namespace Gama.RedeSocial.Domain.Entities
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("A descrição está vazia");
+            if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("'Description' não foi preenchido");
         }
     }
 }
