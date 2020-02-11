@@ -17,29 +17,29 @@ namespace Application
             _service = service;
         }
 
-        public bool Delete(Guid Id)
+        public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
+            return _service.Delete(id);
         }
 
         public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _service.Get(predicate);
         }
 
         public TEntity Get(Guid id)
         {
-            throw new NotImplementedException();
+            return _service.Get(id);
         }
 
         public Guid Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            return _service.Insert(entity);
         }
 
         public bool Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            return _service.Update(entity);
         }
     }
 }
