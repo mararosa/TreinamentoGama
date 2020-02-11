@@ -8,8 +8,7 @@ namespace Gama.RedeSocial.Domain.Entities
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Description)) 
-                throw new ArgumentNullException("Description nao foi preenchido");
+            if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("Description nao foi preenchido");
         }
     }
 }
