@@ -11,7 +11,7 @@ namespace Test
     [TestClass] //atributo testclass
     public class GenderTeste
     {
-        private readonly IGenderService _service;
+        private readonly IGenderService _service; //para o teste funcionar ele precisa do servico, por isso private readoly IGenderService
         public GenderTeste()
         {
             RegisterMappers.Register();
@@ -40,7 +40,7 @@ namespace Test
                 Description = "Indefinido"
             };
 
-            _service.Insert(gender);
+            _service.Insert(gender); //insert para criar. gender eh a entidade que esta esperando
         }
     }
 }

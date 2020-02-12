@@ -9,7 +9,7 @@ namespace Repository.Mappers
     {
         public LikeMapper()
         {
-            ToTable("TB_LIKES");
+            ToTable("TB_LIKE");
             Map(entity => entity.User.Id).ToColumn("ID_USER");
             Map(entity => entity.Post.Id).ToColumn("ID_POST");
         }
